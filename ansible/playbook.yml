@@ -1,0 +1,17 @@
+# ansible/playbook.yml
+- name: Instalar Apache
+  hosts: all
+  become: yes
+  tasks:
+    - name: Instalar Apache2
+      apt:
+        name: apache2
+    - name: Iniciar y habilitar Apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+    - name: Copiar archivos
+      copy:
+        src: ../index.html
+        dest: /var/www/html/
