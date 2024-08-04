@@ -1,6 +1,14 @@
 {
+  "name": "hola-mundo",
+  "version": "1.0.0",
+  "description": "Proyecto de práctica final con CSS y animaciones",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Juan Tavarez",
+  "license": "ISC",
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.12",
-    "jest": "^29.7.0"
+    "jest": "^26.6.3"
   }
 }

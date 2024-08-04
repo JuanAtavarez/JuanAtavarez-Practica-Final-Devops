@@ -1,10 +1,9 @@
 // test.js
 const fs = require('fs');
-const cheerio = require('cheerio');
 
-test('Verifica el título de la página', () => {
+test('Verifica el contenido del h1', () => {
     const html = fs.readFileSync('index.html', 'utf8');
-    const $ = cheerio.load(html);
-    const title = $('title').text();
-    expect(title).toBe('Hola Mundo');
+    const h1Match = html.match(/<h1[^>]*>([^<]+)<\/h1>/);
+    const h1Text = h1Match ? h1Match[1] : null;
+    expect(h1Text).toBe('Hola Mundo');
 });

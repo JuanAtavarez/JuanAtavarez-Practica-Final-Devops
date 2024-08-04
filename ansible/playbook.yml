@@ -6,12 +6,28 @@
     - name: Instalar Apache2
       apt:
         name: apache2
+
     - name: Iniciar y habilitar Apache
       service:
         name: apache2
         state: started
         enabled: yes
+
     - name: Copiar archivos
       copy:
         src: ../index.html
         dest: /var/www/html/
+
+    - name: Crear directorio para CSS
+      file:
+        path: /var/www/html/css
+        state: directory
+        mode: '0755'
+
+    - name: Copiar archivos CSS
+      copy:
+        src: ./css/styles.css
+        dest: /var/www/html/css/
+        mode: '0755'
+        remote_src: yes
+
